@@ -118,6 +118,7 @@ This repository has the following structure:
 │   requirements.txt
 │   setup.sh
 │   .env
+│   .cache
 │   sample_playlists.txt
 │
 ├───readme_images

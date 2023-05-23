@@ -6,6 +6,7 @@ from spotipy.oauth2 import SpotifyClientCredentials # To access authorised Spoti
 import pandas as pd # for creating the dataframe
 import os # (for loading the environment variables)
 from dotenv import load_dotenv # For loading the environment variables (API keys and playlist URI's)
+from tqdm import tqdm # For the progress bar
 
 # Load the environment variables
 def load_environment_variables():
@@ -30,7 +31,8 @@ def get_tracks_and_artists(playlist, sp):
     df = pd.DataFrame(columns=['artist', 'song_name', 'song_uri', 'artist_genres'])
     # Extract song titles
     song_titles = [track['track']['name'] for track in playlist['tracks']['items']]
-    for i in range(len(song_titles)):
+    print('Extracting song titles...')
+    for i in tqdm(range(len(song_titles))):
         artist = playlist['tracks']['items'][i]['track']['artists'][0]['name']
         song_name = playlist['tracks']['items'][i]['track']['name']
         song_uri = playlist['tracks']['items'][i]['track']['uri']

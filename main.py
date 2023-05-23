@@ -26,15 +26,15 @@ def main(args):
 
     ############### IMAGE GENERATION (Using Stable Diffusion) ###############
     # Load the model
-    pipe = stable_diffusion.load_model()
+    pipe = stable_diffusion.load_model() # comment out this line if you want to use DALL·E instead
 
     # Generate the image
-    image = stable_diffusion.generate_image(songs, pipe)
+    image = stable_diffusion.generate_image(songs, pipe) # comment out this line if you want to use DALL·E instead
 
     # Save the image to output folder
-    stable_diffusion.save_image(image)
+    stable_diffusion.save_image(image) # comment out this line if you want to use DALL·E instead
 
-    ############### IMAGE GENERATION (Using DALLE) [Comment out the ### to use DALL·E (requires an OpenAI API access token (see readme.md))] ###############
+    ############### IMAGE GENERATION (Using DALLE) [Remove the ### to use DALL·E (requires an OpenAI API access token (see readme.md))] ###############
     # Load the environment variables
     ###openai_key = dalle.load_environment_variables()
     
