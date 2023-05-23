@@ -149,7 +149,9 @@ This repository has the following structure:
 ## Remarks on findings
 In this project, we have explored the exciting intersection of cultural data science and visual analytics by developing a system that generates artistic cover photos for Spotify playlists. By leveraging state-of-the-art text-to-image generation models, we have created a pipeline that transforms the textual information of song titles and artists into visually captivating representations.
 
-To show its capabilities we have generated five images based on a rock music playlist and five images from a classical music playlist. Although art is a subjective matter we would argue that there is a clear artistic difference between the two sets of images both in terms of colors and content. This is also interesting in a broader perspective as it tells us something about how these SOTA models interprets text visually.
+To show its capabilities, we have generated five images based on a rock music playlist and five images from a classical music playlist. Although art is a subjective matter we would argue that there is a clear artistic difference between the two sets of images both in terms of colors and content. This is also interesting in a broader perspective as it tells us something about how these SOTA models interprets text visually.
+
+The reason for generating the images based on song titles and artists was that we hypothesized that the models would be able to draw on preexisting knowledge of some of the songs from their pre-training. This is an assumption and is not something we've looked into.
 
 The motivation behind this project was to enhance the visual experience of Spotify playlists and provide users with personalized and engaging cover photos. We aimed to bridge the gap between the auditory and visual aspects of music, allowing users to immerse themselves in the aesthetic essence of their playlists.
 
@@ -157,4 +159,4 @@ To facilitate the understanding and replication of our work, we have provided de
 
 By making our code open-source and sharing our methodology, we hope to inspire further exploration and innovation in the field of cultural data science and visual analytics. We believe that the fusion of data-driven approaches and artistic creativity can yield captivating results and unlock new possibilities in various domains.
 
-In conclusion, this project represents a successful integration of cultural data science, visual analytics, and artistic expression. We invite users to delve into the code, experiment with different playlists, and unleash their creativity in the world of cultural data science.
+In conclusion, this project represents a successful integration of cultural data science, visual analytics, and artistic expression. We invite users to delve into the code, experiment with different playlists, and unleash their creativity.
