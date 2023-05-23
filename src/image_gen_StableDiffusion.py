@@ -9,6 +9,7 @@ def load_model(model_id="runwayml/stable-diffusion-v1-5"):
         custom_pipeline="lpw_stable_diffusion", # allows us to process more than 77 tokens.
         torch_dtype=torch.float32
         )
+    pipe.safety_checker = lambda images, clip_input: (images, False) # disables the safety check (as it retuned too many false positives)
     return pipe
 
 # Function to generate image

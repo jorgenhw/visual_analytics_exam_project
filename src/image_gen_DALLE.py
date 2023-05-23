@@ -1,9 +1,18 @@
 import openai
 import requests
 
+import os # (for loading the environment variables)
+from dotenv import load_dotenv # For loading the environment variables (API keys and playlist URI's)
+
+# Load the environment variables
+def load_environment_variables():
+    load_dotenv()
+    openai_key = os.getenv("open")
+    return openai_key
+
 # enter openAI API key
-def setup_openai():
-    openai.api_key = input("Enter your OpenAI API key: ")
+def setup_openai(openai_key):
+    openai.api_key = openai_key
 
 def genrate_image(songs,
                   n=1,

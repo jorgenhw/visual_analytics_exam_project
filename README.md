@@ -1,6 +1,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
+  <a href="https://github.com/jorgenhw/visual_analytics_exam_project">
+    <img src="readme_images/cover_photo.png" alt="Logo" width=500 height=200>
+  </a>
   <h1 align="center">Cultural Datascience 2023</h1> 
   <h2 align="center">Final project</h2> 
   <h3 align="center">Visual Analytics</h3> 
@@ -59,7 +62,14 @@ cd visual_analytics_exam_project
 ```
 
 ### Update the ```.env``` file
-Open the ```.env``` file and insert your ```client_id```, ```client_secret``` and ```playlist URI``` into the specified fields. Save file. These are now global environment variables which the script can read when you run it.
+Enter your ```client_id```, ```client_secret``` and ```playlist URI``` in the environment file ```.env```.
+```bash
+SPOTIPY_CLIENT_ID = 'your key here'
+SPOTIFY_CLIENT_SECRET = 'your key here'
+SPOTIFY_PLAYLIST_ID = 'your key here'
+#openai_key = 'your key here' # [OPTIONAL]
+```
+Uncomment the ```open_ai``` variable if you wish to use DALL·E instead of StableDiffusion (read more about this in the ```Change infrastructure``` section later in this readme). Save file. These are now global environment variables which the script can read when you run it.
 
 ### Run ```setup.sh```
 
@@ -77,9 +87,7 @@ Run the code below in your bash terminal:
 bash setup.sh
 ```
 
-Once you've started the script you'll be asked to enter your Spotify API keys and a playlist URI. Enter these in the command line.
-
-### Changing arguments via ```argparse```
+### [Optional] Changing arguments via ```argparse```
 To provide more flexibility and enable the user to change the parameters of the script from the command line, we have implemented argparse in our script. This means that by running the script with specific command line arguments, you can modify parameters such as the batch size, the number of epochs to train the model, and the learning rate.
 
 To see all the available arguments, simply run the command:
@@ -87,6 +95,14 @@ To see all the available arguments, simply run the command:
 ```bash
 python main.py --help
 ```
+
+### [Optional] Change infrastructure
+The script is set up to use the StableDiffusion models which are freely available through [HuggingFace](https://huggingface.co/). However, if one wish to use [OpenAI's DALL·E](https://openai.com/product/dall-e-2) instead, this can be done with a few changes to the ```main.py``` script and the ```.env``` file.
+
+1. Navigate to ```.env``` and insert your OpenAI access token which can be obtained [here](https://openai.com/blog/openai-api).
+2. Navigate to ```main.py``` and comment out line 29, 32, and 35. Then remove ### on line 39, 42, 45, and 48.
+
+**IMPORTANT**: The use of DALL·E costs a small amount of money. Remember to check on this prior to use.
 
 ## Inspecting results
 
@@ -101,27 +117,43 @@ This repository has the following structure:
 │   README.md
 │   requirements.txt
 │   setup.sh
+│   .env
+│   sample_playlists.txt
 │
-├───data
-│       empty folder [put your data here]
+├───readme_images
+│       cover_photo.png
 │
-├───out
-│       classification_report.txt
-│       training_and_validation_plots.png
+├───output
+│       empty folder 
+│
+├───examples
+│       classical_playlist_image_1.png
+│       classical_playlist_image_2.png
+│       classical_playlist_image_3.png
+│       classical_playlist_image_4.png
+│       classical_playlist_image_5.png
+│       rock_playlist_image_1.png
+│       rock_playlist_image_2.png
+│       rock_playlist_image_3.png
+│       rock_playlist_image_4.png
+│       rock_playlist_image_5.png
 │
 └──src
-        data_wrangling.py
-        classifier.py
-        evaluation.py
+        image_gen_DALLE.py
+        image_gen_StableDiffusion.py
+        spotipy.py
 ```
 
-
-<!-- DATA -->
-
-## Data
-
-
 <!-- RESULTS -->
-
 ## Remarks on findings
-Overall, this project demonstrates the use of a pretrained CNN for image classification and the effectiveness of data augmentation and data generators in improving training efficiency. However, it should be clearly stated that this project project is for educational purposes only. Nothing has been done to find the optimal hyper parameters such as batch size, number of epochs, or learning rate.
+In this project, we have explored the exciting intersection of cultural data science and visual analytics by developing a system that generates artistic cover photos for Spotify playlists. By leveraging state-of-the-art text-to-image generation models, we have created a pipeline that transforms the textual information of song titles and artists into visually captivating representations.
+
+The motivation behind this project was to enhance the visual experience of Spotify playlists and provide users with personalized and engaging cover photos. We aimed to bridge the gap between the auditory and visual aspects of music, allowing users to immerse themselves in the aesthetic essence of their playlists.
+
+To facilitate the understanding and replication of our work, we have provided detailed instructions in this README file. From obtaining Spotify API keys and playlist URIs to running the setup script, we have outlined the necessary steps to reproduce the results. Furthermore, we have included example playlist images in the examples folder, showcasing the visual interpretations generated by our models. These images were generated without seeds and can as such not be replicated 1:1.
+
+This project offers flexibility and customization through the use of command line arguments, allowing users to adjust parameters such as batch size, training epochs, and learning rate. Additionally, we have provided an option to switch between the StableDiffusion models and OpenAI's DALL·E, enabling users to explore different image generation infrastructures.
+
+By making our code open-source and sharing our methodology, we hope to inspire further exploration and innovation in the field of cultural data science and visual analytics. We believe that the fusion of data-driven approaches and artistic creativity can yield captivating results and unlock new possibilities in various domains.
+
+In conclusion, this project represents a successful integration of cultural data science, visual analytics, and artistic expression. We invite users to delve into the code, experiment with different playlists, and unleash their creativity in the world of cultural data science.

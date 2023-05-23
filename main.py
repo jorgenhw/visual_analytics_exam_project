@@ -34,9 +34,12 @@ def main(args):
     # Save the image to output folder
     stable_diffusion.save_image(image)
 
-    ############### IMAGE GENERATION (Using DALLE) [Comment out the ### to use DALL·E (requires an OpenAI token (see readme.md))] ###############
+    ############### IMAGE GENERATION (Using DALLE) [Comment out the ### to use DALL·E (requires an OpenAI API access token (see readme.md))] ###############
+    # Load the environment variables
+    ###openai_key = dalle.load_environment_variables()
+    
     # Enter OpenAI API key
-    ###dalle.setup_openai()
+    ###dalle.setup_openai(openai_key)
     
     # Generate the image
     ###image_url = dalle.generate_image(songs)
