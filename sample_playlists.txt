@@ -1,0 +1,5 @@
+# Rock playlist_id:
+spotify:playlist:2i5GoKw6FDVlIQ4U8pXf2O
+
+# Classical playlist_id
+spotify:playlist:1E9TzAFqscTwgGG7tt50XV
