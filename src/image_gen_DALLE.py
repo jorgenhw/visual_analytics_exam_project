@@ -14,7 +14,7 @@ def load_environment_variables():
 def setup_openai(openai_key):
     openai.api_key = openai_key
 
-def genrate_image(songs,
+def generate_image(songs,
                   n=1,
                   size="512x512"):
     response = openai.Image.create(

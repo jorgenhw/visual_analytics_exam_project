@@ -5,3 +5,11 @@ python-dotenv==1.0.0
 Requests==2.31.0
 torch==2.0.1
 tqdm==4.65.0
+
+
+    prompt = f"Generate an artistic representation of a playlist using 
+    song titles as the theme. Imagine an abstract painting that captures 
+    the essence of the songs. Incorporate vibrant colors and dynamic 
+    hapes to evoke the emotions and moods conveyed by the following 
+    list of songs: {songs}. The artwork should be visually captivating, 
+    with fluid brushstrokes and a sense of movement."

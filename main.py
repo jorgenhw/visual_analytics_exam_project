@@ -26,10 +26,13 @@ def main(args):
 
     ############### IMAGE GENERATION (Using Stable Diffusion) ###############
     # Load the model
-    pipe = stable_diffusion.load_model() # comment out this line if you want to use DALL·E instead
+    pipe = stable_diffusion.load_model(model_id=args.model_id) # comment out this line if you want to use DALL·E instead
 
     # Generate the image
-    image = stable_diffusion.generate_image(songs, pipe) # comment out this line if you want to use DALL·E instead
+    image = stable_diffusion.generate_image(songs, pipe, 
+                                            neg_prompt=args.neg_prompt,
+                                            width = args.width,
+                                            height=args.height) # comment out this line if you want to use DALL·E instead
 
     # Save the image to output folder
     stable_diffusion.save_image(image) # comment out this line if you want to use DALL·E instead
@@ -42,7 +45,9 @@ def main(args):
     ###dalle.setup_openai(openai_key)
     
     # Generate the image
-    ###image_url = dalle.generate_image(songs)
+    ###image_url = dalle.generate_image(songs,
+    #                                 n=args.n,
+    #                                 size=args.size)
 
     # Save the image to output folder
     ###dalle.save_image(image_url)
@@ -57,7 +62,6 @@ if __name__ == "__main__":
     parser.add_argument('--height', type=int, default=512, help='The height of the image. Default: 512. You can change this to any height you want. We recommend using a square image.')
 
     # Arguments for DALL·E
-    parser.add_argument('--openai_api_key', type=str, default="", help='The OpenAI API key for the DALL·E model. Default: "". You can change this to your own OpenAI API key.')
     parser.add_argument('--n', type=int, default=1, help='The number of images to generate. Default: 1. You can change this to any number you want.')
     parser.add_argument('--size', type=str, default="512x512", help='The size of the image. Default: 512x512. You can change this to any size you want. We recommend using a square image e.g. "256x256", "512x512", "1024x1024".')
 
